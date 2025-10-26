@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bot Control Portal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="logo">🤖</span>
+          <div>
+            <h1>Bot Portal</h1>
+            <p>Control &amp; Diagnostics</p>
+          </div>
+        </div>
+        <nav>
+          <a href="#overview" class="nav-link active">Overview</a>
+          <a href="#actions" class="nav-link">Controls</a>
+          <a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+        </nav>
+        <footer>
+          <p class="status-indicator">
+            <span class="dot" id="sidebar-status"></span>
+            <span id="sidebar-status-text">Checking…</span>
+          </p>
+        </footer>
+      </aside>
+
+      <main>
+        <header>
+          <div>
+            <h2 id="overview">Bot Overview</h2>
+            <p>Monitor connection, guilds, and performance at a glance.</p>
+          </div>
+          <button id="refresh-status" class="ghost">Refresh</button>
+        </header>
+
+        <section class="cards-grid">
+          <article class="card">
+            <h3>Connection</h3>
+            <p class="metric" id="connection-status">—</p>
+            <p class="hint" id="last-heartbeat">Last heartbeat: —</p>
+          </article>
+          <article class="card">
+            <h3>Latency</h3>
+            <p class="metric" id="ws-ping">—</p>
+            <p class="hint">Websocket ping</p>
+          </article>
+          <article class="card">
+            <h3>Guilds</h3>
+            <p class="metric" id="guild-count">—</p>
+            <p class="hint" id="guild-names">—</p>
+          </article>
+          <article class="card">
+            <h3>Uptime</h3>
+            <p class="metric" id="uptime">—</p>
+            <p class="hint" id="started-at">—</p>
+          </article>
+        </section>
+
+        <section class="panel" id="actions">
+          <header>
+            <h2>Controls</h2>
+            <p>Run common maintenance tasks safely.</p>
+          </header>
+          <div class="actions-grid">
+            <button class="primary" id="reload-commands">Reload Commands</button>
+            <button class="primary" id="sync-guilds">Refresh Guild Cache</button>
+            <button class="ghost" id="trigger-health-check">Run Health Check</button>
+          </div>
+          <pre class="console" id="action-console">Select an action to see results.</pre>
+        </section>
+
+        <section class="panel" id="troubleshooting">
+          <header>
+            <h2>Troubleshooting Toolkit</h2>
+            <p>Use these diagnostics to pinpoint issues quickly.</p>
+          </header>
+          <div class="diagnostics-grid">
+            <div class="diag-card">
+              <h3>Bot Diagnostics</h3>
+              <ul id="diagnostics-list"></ul>
+            </div>
+            <div class="diag-card">
+              <h3>Environment</h3>
+              <ul id="environment-list"></ul>
+            </div>
+            <div class="diag-card">
+              <h3>Recent Events</h3>
+              <ul id="recent-events"></ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

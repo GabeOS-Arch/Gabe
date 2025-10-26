@@ -1,0 +1,46 @@
+{
+  "name": "Gabe Bot",
+  "version": "2.0.0",
+  "description": "Gabe. A one way ticket to hell.",
+  "main": "dist/index.js",
+  "type": "module",
+  "imports": {
+    "#discord-compat": "./dist/compat/index.js"
+  },
+  "scripts": {
+    "prestart": "npm run build",
+    "predeploy": "npm run build",
+    "start": "node dist/index.js",
+    "deploy": "node dist/predeploy-commands.js",
+    "build": "tsc -p tsconfig.json",
+    "dev": "node --loader ts-node/esm src/index.ts"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "moderation",
+    "utilities",
+    "ai",
+    "fun",
+    "useful"
+  ],
+  "author": "Gabriel Piss, thesomewhatyou",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@github/copilot": "^0.0.351",
+    "@google/generative-ai": "^0.5.0",
+    "@openai/codex": "^0.50.0",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "mathjs": "^11.11.0",
+    "oceanic.js": "^1.13.0",
+    "sharp": "^0.33.5",
+    "undici": "^6.22.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.7.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  }
+}
